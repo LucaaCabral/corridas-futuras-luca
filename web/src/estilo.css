@@ -13,7 +13,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --fundo: #111418;
     --superficie: #1a1f25;
     --texto: #e7eaee;
@@ -27,6 +27,19 @@
   }
 }
 
+:root[data-theme="dark"] {
+  --fundo: #111418;
+  --superficie: #1a1f25;
+  --texto: #e7eaee;
+  --suave: #98a3b0;
+  --borda: #2c333b;
+  --destaque: #ff8a3d;
+  --destaque-suave: #3a2416;
+  --alerta: #ffd479;
+  --alerta-fundo: #3a2f12;
+  color-scheme: dark;
+}
+
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--fundo); color: var(--texto); line-height: 1.45; }
 h1 { margin: 0; font-size: 1.6rem; }
@@ -37,7 +50,9 @@ a { color: var(--destaque); }
 .layout {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px;
+  padding-block: 16px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
   display: grid;
   gap: 16px;
   grid-template-columns: 300px 1fr;
@@ -45,7 +60,7 @@ a { color: var(--destaque); }
 }
 header { grid-area: topo; }
 header p { margin: 0.25rem 0 0; }
-.painel { grid-area: painel; align-self: start; position: sticky; top: 16px; }
+.painel { grid-area: painel; align-self: start; position: sticky; top: calc(16px + env(safe-area-inset-top, 0px)); }
 main { grid-area: principal; min-width: 0; }
 
 @media (max-width: 760px) {
