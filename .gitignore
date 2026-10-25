@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+coletor/.cache/
+
+# Node
+node_modules/
+web/dist/
+
+# Sistema
+.DS_Store

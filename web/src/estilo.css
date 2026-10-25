@@ -1,0 +1,143 @@
+:root {
+  --fundo: #f6f7f9;
+  --superficie: #ffffff;
+  --texto: #1b1f24;
+  --suave: #5f6b7a;
+  --borda: #dde2e8;
+  --destaque: #e8590c;
+  --destaque-suave: #fff1e6;
+  --alerta: #8a5a00;
+  --alerta-fundo: #fff6d6;
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #111418;
+    --superficie: #1a1f25;
+    --texto: #e7eaee;
+    --suave: #98a3b0;
+    --borda: #2c333b;
+    --destaque: #ff8a3d;
+    --destaque-suave: #3a2416;
+    --alerta: #ffd479;
+    --alerta-fundo: #3a2f12;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fundo); color: var(--texto); line-height: 1.45; }
+h1 { margin: 0; font-size: 1.6rem; }
+h3 { margin: 0.2rem 0; font-size: 1.05rem; }
+a { color: var(--destaque); }
+.muted { color: var(--suave); }
+
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas: "topo topo" "painel principal";
+}
+header { grid-area: topo; }
+header p { margin: 0.25rem 0 0; }
+.painel { grid-area: painel; align-self: start; position: sticky; top: 16px; }
+main { grid-area: principal; min-width: 0; }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; grid-template-areas: "topo" "painel" "principal"; }
+  .painel { position: static; }
+}
+
+.painel {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.painel label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
+.painel label.check { flex-direction: row; align-items: center; gap: 8px; }
+.grupo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+.grupo input { min-width: 0; }
+fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+legend { font-size: 0.9rem; margin-bottom: 4px; padding: 0; }
+
+input, select, button { font: inherit; color: inherit; }
+input:not([type="range"]):not([type="checkbox"]), select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--fundo);
+}
+input[aria-invalid="true"] { border-color: var(--destaque); }
+input[type="range"] { accent-color: var(--destaque); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  border: 1px solid var(--borda);
+  background: var(--fundo);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--destaque); border-color: var(--destaque); color: #fff; }
+.secundario {
+  border: 1px solid var(--borda);
+  background: transparent;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.lista { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.card {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card-data { color: var(--destaque); font-weight: 600; font-size: 0.85rem; }
+.card-data::first-letter { text-transform: uppercase; }
+.card-local { margin: 0; font-size: 0.9rem; }
+.distancias { list-style: none; padding: 0; margin: 4px 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.distancias li {
+  background: var(--destaque-suave);
+  color: var(--destaque);
+  border-radius: 6px;
+  padding: 1px 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.card-rodape {
+  margin-top: auto;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+}
+.links { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.vazio, .aviso {
+  background: var(--superficie);
+  border: 1px dashed var(--borda);
+  border-radius: 12px;
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--suave);
+}
+.aviso { max-width: 600px; margin: 40px auto; }
+.alerta { background: var(--alerta-fundo); color: var(--alerta); border-radius: 8px; padding: 8px 12px; margin-top: 0; font-size: 0.9rem; }
+.contagem { margin-top: 0; }

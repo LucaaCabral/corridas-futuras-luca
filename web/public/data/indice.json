@@ -1,0 +1,32 @@
+{
+  "gerado_em": "2026-10-25T00:14:57+00:00",
+  "total": 0,
+  "por_uf": {},
+  "fontes": {
+    "brasilquecorre": {
+      "ok": false,
+      "coletado_em": null,
+      "total": 0
+    },
+    "corridasbrasil": {
+      "ok": false,
+      "coletado_em": null,
+      "total": 0
+    },
+    "minhasinscricoes": {
+      "ok": false,
+      "coletado_em": null,
+      "total": 0
+    },
+    "sympla": {
+      "ok": false,
+      "coletado_em": null,
+      "total": 0
+    },
+    "ticketsports": {
+      "ok": false,
+      "coletado_em": null,
+      "total": 0
+    }
+  }
+}

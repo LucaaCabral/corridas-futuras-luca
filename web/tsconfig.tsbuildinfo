@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/tipos.ts","./src/components/CardCorrida.tsx","./src/components/PainelFiltros.tsx","./src/components/SeletorCidade.tsx","./src/lib/dados.ts","./src/lib/filtros.test.ts","./src/lib/filtros.ts","./src/lib/formato.ts","./src/lib/preferencias.ts","./vite.config.ts"],"version":"5.9.3"}
